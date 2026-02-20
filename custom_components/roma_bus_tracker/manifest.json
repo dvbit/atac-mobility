@@ -1,0 +1,12 @@
+{
+  "domain": "roma_bus_tracker",
+  "name": "ATAC Mobility",
+  "codeowners": [],
+  "config_flow": true,
+  "documentation": "https://developers.google.com/transit/gtfs-realtime",
+  "iot_class": "cloud_polling",
+  "requirements": [
+    "gtfs-realtime-bindings>=1.0.0"
+  ],
+  "version": "0.3.0"
+}

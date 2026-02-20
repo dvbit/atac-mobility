@@ -1,0 +1,118 @@
+{
+  "config": {
+    "error": {
+      "no_lines_found": "Nessuna linea bus trovata nel GTFS statico. Controlla l'URL del GTFS statico.",
+      "no_stops_found": "Nessuna fermata trovata per questa linea nel GTFS statico."
+    },
+    "step": {
+      "user": {
+        "title": "ATAC Mobility",
+        "description": "Configura gli URL dei feed e l'intervallo di aggiornamento.",
+        "data": {
+          "scan_interval": "Intervallo di aggiornamento (secondi)",
+          "trip_updates_url": "URL feed trip updates",
+          "vehicle_positions_url": "URL feed posizioni veicoli",
+          "static_gtfs_url": "URL ZIP GTFS statico"
+        }
+      },
+      "line": {
+        "title": "Linea bus",
+        "description": "Scegli una linea bus dalle descrizioni del GTFS statico.",
+        "data": {
+          "line": "Linea bus"
+        }
+      },
+      "stop_menu": {
+        "title": "Fermate monitorate",
+        "description": "Fermate selezionate: {count} ({selected})",
+        "menu_options": {
+          "add_stop": "Aggiungi fermata",
+          "stop_finish": "Termina"
+        }
+      },
+      "add_stop": {
+        "title": "Aggiungi fermata monitorata",
+        "description": "Scegli una fermata dal menu a tendina.",
+        "data": {
+          "stop_id": "Fermata",
+          "alert_minutes": "Vai su ON quando il prossimo bus arriva entro questi minuti"
+        }
+      },
+      "stop_finish": {
+        "title": "Termina"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opzioni ATAC Mobility",
+        "data": {
+          "line": "Linea bus",
+          "scan_interval": "Intervallo di aggiornamento (secondi)",
+          "trip_updates_url": "URL feed trip updates",
+          "vehicle_positions_url": "URL feed posizioni veicoli",
+          "static_gtfs_url": "URL ZIP GTFS statico"
+        }
+      }
+    }
+  },
+  "entity": {
+    "device_tracker": {
+      "bus_tracker": {
+        "name": "Bus {number} - {line}",
+        "state_attributes": {
+          "line": {
+            "name": "Linea"
+          },
+          "vehicle_id": {
+            "name": "ID veicolo"
+          },
+          "route_id": {
+            "name": "ID percorso"
+          },
+          "trip_id": {
+            "name": "ID corsa"
+          },
+          "vehicle_label": {
+            "name": "Etichetta veicolo"
+          },
+          "speed_mps": {
+            "name": "Velocita (m/s)"
+          },
+          "bearing": {
+            "name": "Direzione"
+          },
+          "timestamp": {
+            "name": "Timestamp"
+          }
+        }
+      }
+    },
+    "binary_sensor": {
+      "stop_monitor": {
+        "name": "Fermata - {stop_name}",
+        "state_attributes": {
+          "stop_id": {
+            "name": "ID fermata"
+          },
+          "stop_name": {
+            "name": "Nome fermata"
+          },
+          "arrival_alert_minutes": {
+            "name": "Soglia avviso (minuti)"
+          },
+          "next_arrival_minutes": {
+            "name": "Prossimo arrivo (minuti)"
+          },
+          "next_arrival_unix": {
+            "name": "Prossimo arrivo (unix)"
+          },
+          "trip_id": {
+            "name": "ID corsa"
+          }
+        }
+      }
+    }
+  }
+}

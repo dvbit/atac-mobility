@@ -1,0 +1,118 @@
+{
+  "config": {
+    "error": {
+      "no_lines_found": "No bus lines found in static GTFS. Check static GTFS URL.",
+      "no_stops_found": "No stops found for this line in static GTFS."
+    },
+    "step": {
+      "user": {
+        "title": "ATAC Mobility",
+        "description": "Configure feed URLs and update interval.",
+        "data": {
+          "scan_interval": "Update interval (seconds)",
+          "trip_updates_url": "Trip updates feed URL",
+          "vehicle_positions_url": "Vehicle positions feed URL",
+          "static_gtfs_url": "Static GTFS ZIP URL"
+        }
+      },
+      "line": {
+        "title": "Bus line",
+        "description": "Choose a bus line from static GTFS descriptions.",
+        "data": {
+          "line": "Bus line"
+        }
+      },
+      "stop_menu": {
+        "title": "Monitored stops",
+        "description": "Selected stops: {count} ({selected})",
+        "menu_options": {
+          "add_stop": "Add stop",
+          "stop_finish": "Finish"
+        }
+      },
+      "add_stop": {
+        "title": "Add monitored stop",
+        "description": "Choose a stop from the dropdown.",
+        "data": {
+          "stop_id": "Stop",
+          "alert_minutes": "Turn ON when next bus is within this many minutes"
+        }
+      },
+      "stop_finish": {
+        "title": "Finish"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "ATAC Mobility options",
+        "data": {
+          "line": "Bus line",
+          "scan_interval": "Update interval (seconds)",
+          "trip_updates_url": "Trip updates feed URL",
+          "vehicle_positions_url": "Vehicle positions feed URL",
+          "static_gtfs_url": "Static GTFS ZIP URL"
+        }
+      }
+    }
+  },
+  "entity": {
+    "device_tracker": {
+      "bus_tracker": {
+        "name": "Bus {number} - {line}",
+        "state_attributes": {
+          "line": {
+            "name": "Line"
+          },
+          "vehicle_id": {
+            "name": "Vehicle ID"
+          },
+          "route_id": {
+            "name": "Route ID"
+          },
+          "trip_id": {
+            "name": "Trip ID"
+          },
+          "vehicle_label": {
+            "name": "Vehicle label"
+          },
+          "speed_mps": {
+            "name": "Speed (m/s)"
+          },
+          "bearing": {
+            "name": "Bearing"
+          },
+          "timestamp": {
+            "name": "Timestamp"
+          }
+        }
+      }
+    },
+    "binary_sensor": {
+      "stop_monitor": {
+        "name": "Stop - {stop_name}",
+        "state_attributes": {
+          "stop_id": {
+            "name": "Stop ID"
+          },
+          "stop_name": {
+            "name": "Stop name"
+          },
+          "arrival_alert_minutes": {
+            "name": "Alert threshold (minutes)"
+          },
+          "next_arrival_minutes": {
+            "name": "Next arrival (minutes)"
+          },
+          "next_arrival_unix": {
+            "name": "Next arrival (unix)"
+          },
+          "trip_id": {
+            "name": "Trip ID"
+          }
+        }
+      }
+    }
+  }
+}
